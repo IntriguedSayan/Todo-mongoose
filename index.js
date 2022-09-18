@@ -1,8 +1,7 @@
 const express=require("express")
 const {connection}=require("./Config/db")
-const {TodoModel}=require("./Models/todo")
 const {todoController}=require("./Routes/todo.Routes")
-
+const {authController}=require("./Routes/auth.Routes")
 const app=express()
 app.use(express.json())
 
@@ -11,7 +10,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/todos",todoController)
-
+app.use("/auth",authController)
 
 app.listen(7200,async()=>{
     try{
